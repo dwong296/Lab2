@@ -6,7 +6,7 @@ import pkgPokerEnum.eHandStrength;
 import pkgPokerEnum.eRank;
 
 public class HandScore {
-
+	
 	private eHandStrength HandStrength;
 	private eRank HiHand;
 	private eRank LoHand = null;

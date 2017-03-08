@@ -177,7 +177,7 @@ public class Hand {
 		
 		return isHandStraight;
 	}
-	
+
 	public static boolean isHandThreeOfAKind(Hand h, HandScore hs)
 	{
 		boolean isThreeOfAKind = false;

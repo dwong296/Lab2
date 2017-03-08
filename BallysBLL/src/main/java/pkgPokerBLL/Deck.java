@@ -11,7 +11,7 @@ public class Deck {
 
 	private UUID DeckID;
 	private ArrayList<Card> DeckCards = new ArrayList<Card>();
-	
+
 	public Deck()
 	{
 		for(eRank Rank:eRank.values())

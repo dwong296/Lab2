@@ -1,7 +1,7 @@
 package pkgPokerEnum;
 
 public enum eHandStrength {
-	
+
 	RoyalFlush(100, "isHandRoyalFlush") {
 		public String toString() {
 			return "Royal Flush";
