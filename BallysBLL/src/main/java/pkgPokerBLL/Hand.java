@@ -116,7 +116,7 @@ public class Hand {
 	public static boolean isHandStraightFlush(Hand h, HandScore hs)
 	{
 		boolean isStraightFlush = false;
-		if (isHandStraight(h, hs)&& isHandFlush(h, hs))
+		if (isHandStraight(h, hs) && isHandFlush(h, hs))
 		{
 			isStraightFlush = true;
 			hs.setHandStrength(eHandStrength.StraightFlush);
@@ -169,13 +169,32 @@ public class Hand {
 		return isFlush;
 	}		
 	
-	//TODO: Implement This Method
 	public static boolean isHandStraight(Hand h, HandScore hs)
 	{
-		boolean isHandStraight = false;
+		boolean isStraight = false;
 		ArrayList<Card> kickers = new ArrayList<Card>();
-		
-		return isHandStraight;
+		if (((h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank().getiRankNbr()
+				- h.getCardsInHand().get(eCardNo.SecondCard.getCardNo()).geteRank().getiRankNbr() == 1)) && ((h.getCardsInHand().get(eCardNo.SecondCard.getCardNo()).geteRank().getiRankNbr()
+						- h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()).geteRank().getiRankNbr() == 1) && (h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()).geteRank().getiRankNbr()
+								- h.getCardsInHand().get(eCardNo.FourthCard.getCardNo()).geteRank().getiRankNbr() == 1) && (h.getCardsInHand().get(eCardNo.FourthCard.getCardNo()).geteRank().getiRankNbr()
+										- h.getCardsInHand().get(eCardNo.FifthCard.getCardNo()).geteRank().getiRankNbr() == 1)))
+				{
+					isStraight = true;
+					hs.setHandStrength(eHandStrength.Straight);
+					hs.setHiHand(h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank());
+					hs.setLoHand(null);
+				}
+		else if (((h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank() == eRank.ACE)) && ((h.getCardsInHand().get(eCardNo.SecondCard.getCardNo()).geteRank().getiRankNbr()
+						- h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()).geteRank().getiRankNbr() == 1) && (h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()).geteRank().getiRankNbr()
+								- h.getCardsInHand().get(eCardNo.FourthCard.getCardNo()).geteRank().getiRankNbr() == 1) && (h.getCardsInHand().get(eCardNo.FourthCard.getCardNo()).geteRank().getiRankNbr()
+										- h.getCardsInHand().get(eCardNo.FifthCard.getCardNo()).geteRank().getiRankNbr() == 1)))
+		{
+			isStraight = true;
+			hs.setHandStrength(eHandStrength.Straight);
+			hs.setHiHand(h.getCardsInHand().get(eCardNo.SecondCard.getCardNo()).geteRank());
+			hs.setLoHand(null);
+		}
+		return isStraight;
 	}
 
 	public static boolean isHandThreeOfAKind(Hand h, HandScore hs)
